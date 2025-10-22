@@ -59,6 +59,28 @@ export async function getArenaImages(): Promise<ArenaImage[]> {
       page++;
     }
 
+    // Sort images: group by base title, then by trailing number
+    allImages.sort((a, b) => {
+      // Extract base title (everything except trailing numbers)
+      const getBaseName = (title: string) => title.replace(/\s+\d+\s*$/, '').trim();
+      const getTrailingNumber = (title: string) => {
+        const match = title.match(/\s+(\d+)\s*$/);
+        return match ? parseInt(match[1], 10) : 0;
+      };
+
+      const baseA = getBaseName(a.title);
+      const baseB = getBaseName(b.title);
+      const numA = getTrailingNumber(a.title);
+      const numB = getTrailingNumber(b.title);
+
+      // First, sort by base title alphabetically
+      if (baseA < baseB) return -1;
+      if (baseA > baseB) return 1;
+
+      // Within the same base title, sort by trailing number
+      return numA - numB;
+    });
+
     return allImages;
   } catch (error) {
     console.error('Error fetching from Are.na:', error);

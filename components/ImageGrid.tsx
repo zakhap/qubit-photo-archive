@@ -40,7 +40,7 @@ export default function ImageGrid({ images }: ImageGridProps) {
             onMouseEnter={() => setHoveredImage(index)}
             onMouseLeave={() => setHoveredImage(null)}
             onMouseMove={handleMouseMove}
-            className="relative aspect-square overflow-hidden bg-gray-900 hover:opacity-90 transition-opacity"
+            className="relative aspect-square overflow-hidden bg-gray-900 hover:opacity-90 transition-opacity cursor-pointer"
           >
             <img
               src={image.thumbnailUrl}
@@ -54,7 +54,7 @@ export default function ImageGrid({ images }: ImageGridProps) {
 
       {hoveredImage !== null && (
         <div
-          className="fixed pointer-events-none z-40 bg-white px-3 py-2 rounded shadow-lg text-sm font-bold uppercase"
+          className="fixed pointer-events-none z-40 bg-white px-3 py-2 rounded shadow-lg text-sm font-bold uppercase text-black"
           style={{
             left: `${cursorPosition.x + 15}px`,
             top: `${cursorPosition.y + 15}px`,
@@ -83,7 +83,7 @@ export default function ImageGrid({ images }: ImageGridProps) {
             />
           </div>
           <div className="fixed bottom-0 left-0 right-0 bg-white py-4 px-6 border-t border-gray-200 z-10 animate-in slide-in-from-bottom duration-300">
-            <p className="text-sm font-bold text-center">{images[selectedImage].title}</p>
+            <p className="text-sm font-bold text-center text-black">{images[selectedImage].title}</p>
           </div>
         </div>
       )}

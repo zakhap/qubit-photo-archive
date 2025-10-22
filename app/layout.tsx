@@ -28,13 +28,13 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
         <header className="sticky top-0 bg-white z-50 py-4 px-6 border-b border-gray-200">
-          <h1 className="text-sm font-normal tracking-wide">QUBIT PERFORMANCE ARCHIVE</h1>
+          <h1 className="text-sm font-normal tracking-wide text-black">QUBIT PERFORMANCE ARCHIVE</h1>
         </header>
-        <main className="flex-1 bg-white">
+        <main className="flex-1 bg-white text-black">
           {children}
         </main>
         <footer className="fixed bottom-0 left-0 right-0 bg-white py-4 px-6 border-t border-gray-200 z-10">
-          <p className="text-sm text-gray-600">Contact</p>
+          <p className="text-sm text-black">Contact</p>
         </footer>
       </body>
     </html>
