@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# QUBIT PERFORMANCE ARCHIVE
+
+A Next.js-based static portfolio site that fetches images from Are.na and displays them in a responsive grid with lightbox functionality.
+
+## Project Structure
+
+```
+├── app/                    # Next.js App Router pages
+├── components/            # React components
+│   └── ImageGrid.tsx     # Grid with lightbox functionality
+├── lib/
+│   └── arena.ts          # Are.na API integration
+├── types/
+│   └── arena.d.ts        # TypeScript definitions for are.na package
+└── next.config.ts        # Configured for static export
+```
 
 ## Getting Started
 
-First, run the development server:
+1. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. **Set up environment variables**:
+   Create a `.env.local` file in the root directory with your Are.na channel details:
+   ```bash
+   ARENA_CHANNEL_SLUG=your-channel-slug
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   **Note**: The Are.na channel must be set to **public** for the site to fetch images without authentication.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. **Development**:
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. **Build static site**:
+   ```bash
+   npm run build
+   ```
+   Output will be in the `out/` directory
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+- Static site generation (no server needed)
+- Optimized for images with Next.js Image component
+- Responsive grid layout
+- TypeScript for type safety
+- Tailwind CSS for styling
+- Ready to deploy to GitHub Pages, Netlify, Vercel, etc.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Next Steps
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Customize `app/page.tsx` with your content
+- Add images to `public/images/`
+- Update styling in components and pages
+- Add metadata in `app/layout.tsx`
