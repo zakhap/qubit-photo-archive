@@ -24,3 +24,28 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Fade and slide animation for images entering/leaving viewport */
+.image-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.1s ease-out, transform 0.1s ease-out;
+}
+
+.image-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.image-item.exiting-top {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+/* Fallback for older browsers - images just appear */
+@supports not (transition-behavior: allow-discrete) {
+  .image-item {
+    opacity: 1;
+    transform: none;
+  }
+}

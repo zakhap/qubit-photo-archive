@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "update-titles": "tsx scripts/update-arena-titles.ts",
+    "update-titles-interactive": "tsx scripts/update-titles-interactive.ts",
+    "update-titles-approve": "tsx scripts/update-titles-approve.ts"
   },
   "dependencies": {
     "are.na": "^0.1.5",
@@ -19,9 +22,11 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dotenv": "^17.2.3",
     "eslint": "^9",
     "eslint-config-next": "16.0.0",
     "tailwindcss": "^4",
+    "tsx": "^4.20.6",
     "typescript": "^5"
   }
 }
