@@ -2,6 +2,7 @@ declare module 'are.na' {
   export interface ArenaBlock {
     id: number;
     title: string;
+    generated_title?: string;
     class: string;
     image?: {
       thumb: {
