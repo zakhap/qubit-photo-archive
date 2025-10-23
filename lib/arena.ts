@@ -25,29 +25,7 @@ export async function getArenaImages(): Promise<ArenaImage[]> {
         .filter(block => block.class === 'Image' && block.image)
         .map(block => ({
           id: block.id,
-          title: (() => {
-            let title = block.title || 'Untitled';
-            // Remove file extensions
-            title = title.replace(/\.(png|jpg|jpeg|gif|webp)$/i, '');
-            // Replace -22 with -" and 22- with "-
-            title = title.replace(/-22-/g, '-"-');
-            title = title.replace(/-22([a-z])/gi, '-"$1');
-            title = title.replace(/([a-z])22-/gi, '$1"-');
-            // Replace remaining hyphens with spaces
-            title = title.replace(/-/g, ' ');
-            // Clean up multiple spaces
-            title = title.replace(/\s+/g, ' ');
-            // Remove ALL spaces around quotes first
-            title = title.replace(/\s*"\s*/g, '"');
-            // Now add spaces around the entire quoted phrase: "word" becomes " "word" "
-            title = title.replace(/("[^"]*")/g, ' $1 ');
-            // Clean up multiple spaces again
-            title = title.replace(/\s+/g, ' ');
-            // Wrap 4-digit years in parentheses
-            title = title.replace(/\b(\d{4})\b/g, '($1)');
-            // Clean up and trim
-            return title.trim();
-          })(),
+          title: block.generated_title || block.title || 'Untitled',
           thumbnailUrl: block.image!.display.url,
           fullUrl: block.image!.original.url,
         }));

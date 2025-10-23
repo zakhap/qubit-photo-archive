@@ -9,7 +9,8 @@
     "lint": "eslint",
     "update-titles": "tsx scripts/update-arena-titles.ts",
     "update-titles-interactive": "tsx scripts/update-titles-interactive.ts",
-    "update-titles-approve": "tsx scripts/update-titles-approve.ts"
+    "update-titles-approve": "tsx scripts/update-titles-approve.ts",
+    "copy-title-to-description": "tsx scripts/copy-title-to-description.ts"
   },
   "dependencies": {
     "are.na": "^0.1.5",
