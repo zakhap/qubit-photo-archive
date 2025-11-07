@@ -41,7 +41,9 @@ export default function RootLayout({
           {children}
         </main>
         <footer className="fixed bottom-0 left-0 right-0 bg-white py-4 px-6 border-t border-gray-200 z-10">
-          <p className="text-sm text-black">Contact</p>
+          <p className="text-sm text-black">
+            <a href="mailto:info@qubitmusic.com" className="hover:underline">Contact</a>
+          </p>
         </footer>
       </body>
     </html>
